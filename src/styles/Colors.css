@@ -1,0 +1,29 @@
+html {
+    --fifty: #f9fafb;
+    --one: #f3f4f6;
+    --two: #e5e7eb;
+    --three: #d1d5db;
+    --four: #9ca3af;
+    --five: #6b7280;
+    --six: #4b5563;
+    --seven: #374151;
+    --eight: #1f2937;
+    --nine: #111827;
+    --nineFifty: #030712;
+}
+
+body {
+    background-color: var(--nineFifty);
+}
+
+.nav {
+    background-color: var(--eight);
+}
+
+.sidebar {
+    background-color: var(--eight);
+}
+
+.card {
+    background-color: var(--nine);
+}
