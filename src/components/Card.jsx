@@ -5,28 +5,26 @@ import '../styles/Colors.css';
 export default function Card(props) {
     const [cardData, setCardData] = React.useState([]);
 
-    React.useEffect(() => {
-        async function getCardInfo() {
-            console.log(props.data);
-            const url = `https://api.rawg.io/api/games/${props.data.id}?token&key=${props.apiKey}`
-            fetch(url)
-            .then((res) => res.json())
-            .then((data) => setCardData(data));
-        }
-        getCardInfo();
-    }, []);
-
-
-    function handleClick(e) {
-        console.log(cardData);
+    const style = {
+        backgroundImage: `url(${props.data.background_image})`,
     }
+    // React.useEffect(() => {
+    //     async function getCardInfo() {
+    //         console.log(props.data);
+    //         const url = `https://api.rawg.io/api/games/${props.data.id}?token&key=${props.apiKey}`
+    //         fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => setCardData(data));
+    //     }
+    //     getCardInfo();
+    // }, []);
     
     return (
-        <div className="card" onClick={handleClick}>
+        <div style={style} className="card" onClick={() => props.handleCardClick(props.data)}>
             <div className="card-overlay">
-                
+                <p>{props.data.name}</p>
             </div>
-            <img src={props.data.image_background} />
+            {/* <img src={props.data.background_image} /> */}
         </div>
     )
 }
