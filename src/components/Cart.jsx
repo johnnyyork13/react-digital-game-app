@@ -21,18 +21,24 @@ export default function Cart() {
         //console.log("game", game);
         return (<CartItem
                     key={uuidv4()}
-                    onClick={() => handleClickGameInCart(game)}
                     handleDeleteCartItem={handleDeleteCartItem}
+                    handleAddCartItem={handleAddCartItem}
                     game={game}
                 />)
      }) : [];
 
-    function handleClickGameInCart(game) {
-        removeGameFromCart(game);
-    }
-
     function handleDeleteCartItem(game) {
         setCart((prev) => prev.filter((e) => e.name !== game.name && e));
+    }
+
+    function handleAddCartItem(game) {
+        setCart(function(prev) {
+            const copies = game.copies; 
+            console.log("BEFORE", prev);
+            return prev.map((e) => e.name === game.name ? {...e, copies: copies + 1} : e)
+            
+            console.log("AFTER", prev);
+        })
     }
 
     return (

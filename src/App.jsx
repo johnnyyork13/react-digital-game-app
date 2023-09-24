@@ -56,10 +56,12 @@ function App() {
   }
 
   function handleAddGameToCart(game) {
-    setCart((prev) => ([
-      ...prev,
-      game
-    ]))
+    setCart(function(prev) {
+      const copies = game.copies ? game.copies : 0;
+      return [...prev,
+      {...game, copies: copies + 1}
+      ]
+    })
   }
 
   return (

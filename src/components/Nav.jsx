@@ -16,9 +16,9 @@ export default function Nav(props) {
             <Link to="/" state={{cart: props.cart}}>Back Home</Link>
             <input className="search-bar" type="search" placeholder="Search for games..."/>
             <button className="search-btn" type="button">Search</button>
-            <div className="cart-logo" style={cartLogoStyle}>
-                <Link className="cart-count" to="/cart" state={{cart: props.cart}}>{props.cart.length}</Link>
-            </div>
+            <Link className="cart-logo" style={cartLogoStyle} to="/cart" state={{cart: props.cart}}>
+                {props.cart.length}
+            </Link>
             
         </div>
     )
