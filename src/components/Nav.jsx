@@ -7,6 +7,7 @@ export default function Nav(props) {
 
     return (
         <div className="nav">
+            <Link to="/" state={{cart: props.cart}}>Back Home</Link>
             <input className="search-bar" type="search" placeholder="Search for games..."/>
             <button className="search-btn" type="button">Search</button>
             <h1>Items in Cart: {props.cart.length}</h1>

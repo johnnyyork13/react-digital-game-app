@@ -8,6 +8,7 @@ export default function CartItem(props) {
             <img src={props.game.background_image}/>
             <div className="cart-item-description">
                 <h2>{props.game.name}</h2>
+                <button onClick={() => props.handleDeleteCartItem(props.game)}>Remove</button>
             </div>
         </div>
     )

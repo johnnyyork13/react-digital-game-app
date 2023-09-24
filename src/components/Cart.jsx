@@ -22,6 +22,7 @@ export default function Cart() {
         return (<CartItem
                     key={uuidv4()}
                     onClick={() => handleClickGameInCart(game)}
+                    handleDeleteCartItem={handleDeleteCartItem}
                     game={game}
                 />)
      }) : [];
@@ -30,7 +31,7 @@ export default function Cart() {
         removeGameFromCart(game);
     }
 
-    function removeGameFromCart(game) {
+    function handleDeleteCartItem(game) {
         setCart((prev) => prev.filter((e) => e.name !== game.name && e));
     }
 
