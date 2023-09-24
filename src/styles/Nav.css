@@ -26,3 +26,19 @@
     align-items: center;
     font-size: 1.2em;
 }
+
+.cart-logo {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-count {
+    margin: 0;
+    margin-left: 10px;
+    color: white;
+    font-weight: bolder;
+}
