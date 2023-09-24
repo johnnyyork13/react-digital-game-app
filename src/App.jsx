@@ -13,12 +13,12 @@ function App() {
 
   const key = "6edf5284267f4b93812855603bb5435a";
   const cartHistory = useLocation();
-  const page = useParams();
-  console.log("PAGE", page);
+  // const page = useParams();
+  // console.log("PAGE", page);
 
   const [games, setGames] = React.useState(null);
   const [cart, setCart] = React.useState(function() {
-    console.log("HISTORY", cartHistory);
+    //console.log("HISTORY", cartHistory);
     return cartHistory.state ? cartHistory.state.cart : [];
   })
   const [modal, setModal] = React.useState({
@@ -55,10 +55,10 @@ function App() {
     })
   }
 
-  function handleAddToCart(data) {
+  function handleAddGameToCart(game) {
     setCart((prev) => ([
       ...prev,
-      data
+      game
     ]))
   }
 
@@ -68,19 +68,20 @@ function App() {
           <CardModal 
             data={modal.data}
             handleCloseModal={handleCloseModal}
-            handleAddToCart={handleAddToCart}
+            handleAddGameToCart={handleAddGameToCart}
             apiKey={key}
           />}
       <Nav
         cart={cart}
       />
-      {page !== "cart" ? <div className="main-section">
-        <Sidebar />
+      <div className="main-section">
+        <Sidebar 
+          type="home"
+        />
         <div className="card-container">
         {cardList}
         </div>
-      </div> : 
-      <Cart />}
+      </div>  
     </div>
   )
 }

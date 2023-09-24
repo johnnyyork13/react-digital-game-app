@@ -1,11 +1,7 @@
 import React from 'react';
 import Slideshow from './Slideshow';
-import GameDescription from './GameDescription';
-import { v4 as uuidv4 } from 'uuid';
 import '../styles/CardModal.css';
 import '../styles/Colors.css';
-import arrowLeft from '../assets/arrow-left.png';
-import arrowRight from '../assets/arrow-right.png';
 import GameDescriptionContainer from './GameDescriptionContainer';
 
 export default function CardModal(props) {
@@ -34,7 +30,7 @@ export default function CardModal(props) {
                 <GameDescriptionContainer
                     game={game}
                 />
-                <button onClick={() => props.handleAddToCart(props.data)} className="add-btn">Add to Cart</button>
+                <button onClick={() => props.handleAddGameToCart(game)} className="add-btn">Add to Cart</button>
             </div>
         </div>
     )

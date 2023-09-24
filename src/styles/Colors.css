@@ -13,15 +13,16 @@ html {
 }
 
 body {
-    background-color: var(--nineFifty);
+    background-color: var(--fifty);
+    color: var(--nine);
 }
 
 .nav {
-    background-color: var(--eight);
+    background-color: var(--four);
 }
 
 .sidebar {
-    background-color: var(--eight);
+    background-color: var(--four);
 }
 
 .card {
@@ -30,14 +31,12 @@ body {
 
 .card-overlay {
     background-color: rgba(0, 0, 0, 0.8);
-    color: white;
 }
 
 .modal-background {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal {
-    color: white;
-    background-color: var(--five);
+    background-color: var(--three);
 }
