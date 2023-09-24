@@ -1,0 +1,33 @@
+.slideshow {
+    width: 50%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.slideshow:hover .arrow-left, .slideshow:hover .arrow-right {
+    visibility: visible;
+}
+
+.arrow-left, .arrow-right {
+    visibility: hidden;
+    height: 50px;
+    width: auto;
+    position: absolute;
+    cursor: pointer;
+}
+
+.arrow-left {
+    left: 0px;
+    top: 40%;
+}
+
+.arrow-right {
+    right: 0px;
+    top: 40%;
+}
+
+.slides img {
+    width: 100%;
+}

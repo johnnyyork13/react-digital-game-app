@@ -1,4 +1,5 @@
 import React from 'react';
+import Slideshow from './Slideshow';
 import { v4 as uuidv4 } from 'uuid';
 import '../styles/CardModal.css';
 import '../styles/Colors.css';
@@ -9,10 +10,6 @@ import arrowLeft from '../assets/arrow-left.png';
 import arrowRight from '../assets/arrow-right.png';
 
 export default function CardModal(props) {
-
-    const style = {
-        backgroundImage: `url(${props.data.background_image})`
-    }
 
     const [game, setGame] = React.useState([]);
     const [screenshots, setScreenshots] = React.useState([])
@@ -58,10 +55,9 @@ export default function CardModal(props) {
         <div className="modal-background">
             <div className="modal">
                 <button className="close-modal-btn" onClick={props.handleCloseModal}>X</button>
-                <div className="modal-img" style={style}>
-                    <img src={arrowLeft} className="arrow-left" />
-                    <img src={arrowRight} className="arrow-right" />
-                </div>
+                <Slideshow
+                    data={props.data}
+                />
                 <div className="modal-description-container">
                     <p className="modal-header">{props.data.name}</p>
                     <p className="modal-description" dangerouslySetInnerHTML={{__html: `${game.description}`}}></p>
