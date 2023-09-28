@@ -1,0 +1,24 @@
+//returns "data" object
+
+React.useEffect(() => {
+    async function getGames(){
+      const url = `https://api.rawg.io/api/games?token&key=${key}`
+      fetch(url)
+      .then((res) => res.json())
+      .then((data) => setGames(data))
+    }
+    getGames();
+  }, []);
+
+//returns "game" object
+
+  React.useEffect(() => {
+        async function getGame() {
+            const url = `https://api.rawg.io/api/games/${props.data.id}?token&key=${props.apiKey}`;
+            fetch(url)
+            .then((res) => res.json())
+            .then((data) => setGame(data))
+            .catch((err) => setError(err));
+        }
+        getGame();
+    }, [])
