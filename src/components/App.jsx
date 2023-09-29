@@ -1,8 +1,13 @@
 import './styles/App.css';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import { useLocation, useParams } from 'react-router-dom';
+
+//component imports
+import Nav from './Nav';
+import Sidebar from './Sidebar';
+import Hero from './Hero';
+import Featured from './Featured';
 
 function App() {
 
@@ -11,20 +16,12 @@ function App() {
   // const page = useParams();
   // console.log("PAGE", page);
 
-  // React.useEffect(() => {
-  //   async function getGames(){
-  //     const url = `https://api.rawg.io/api/games?token&key=${key}`
-  //     fetch(url)
-  //     .then((res) => res.json())
-  //     .then((data) => setGames(data))
-  //   }
-  //   getGames();
-  // }, []);
-
-
   return (
     <div className="App">
-       
+      <Nav />
+      <Sidebar />
+      <Hero />
+      <Featured /> 
     </div>
   )
 }
