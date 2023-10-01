@@ -5,13 +5,13 @@ body {
 .App {
     display: grid;
     grid-template-columns: 100px 200px 1fr 100px;
-    grid-template-rows: 64px 400px auto;
+    grid-template-rows: 64px 400px 600px;
     gap: 10px;
     grid-template-areas: 
         "... nav nav ..."
         "... hero hero ..."
-        "... sidebar gameRowContainer ..."
-        "... sidebar gameRowContainer ..." ;
+        "... sidebar allGameRows ..."
+        "... sidebar allGameRows ..." ;
 }
 
 .nav {
@@ -26,8 +26,8 @@ body {
     grid-area: sidebar;
 }
 
-.game-row-container {
-    grid-area: gameRowContainer;
+.all-game-rows {
+    grid-area: allGameRows;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);

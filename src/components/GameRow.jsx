@@ -21,7 +21,6 @@ export default function GameRow(props) {
             setSlidePosition((prev) => prev + adjustment > min ? prev : prev + adjustment);
         } else if (e.target.name === "right") {
             setSlidePosition(function(prev) {
-                console.log("RIGHT IS: ", prev);
                 return prev - adjustment < max ? prev : prev - adjustment;
             })
         }
@@ -37,10 +36,13 @@ export default function GameRow(props) {
     })
 
     return (
-        <div className="game-row" style={style}>
-            <button className="left-btn" onClick={slideshow} name="left">{`<`}</button>
-            {games}
-            <button className="right-btn" onClick={slideshow} name="right">{'>'}</button>
+        <div className="game-row-container">
+            <h2>{props.title}</h2>
+            <div className="game-row" style={style}>
+                <button className="left-btn" onClick={slideshow} name="left">{`<`}</button>
+                {games}
+                <button className="right-btn" onClick={slideshow} name="right">{'>'}</button>
+            </div>
         </div>
     )
 }

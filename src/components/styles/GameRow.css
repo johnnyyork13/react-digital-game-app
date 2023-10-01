@@ -1,3 +1,14 @@
+.game-row-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px auto;
+}
+
+.game-row-container h2 {
+    margin: 0;
+    height: 30px;
+}
+
 .game-row {
     overflow-y: hidden;
     gap: 15px;

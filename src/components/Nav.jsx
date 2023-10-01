@@ -14,8 +14,9 @@ export default function Nav(props) {
                 <button className="nav-btn">Random Game</button>
             </div>
             <div className="search-container">
-                <input type="search" className="search" placeholder="Search for a Game"></input>
-                <button className="cart-btn">View Cart</button>
+                <input type="search" className="search-bar" placeholder="Search for a Game"></input>
+                <button className="search-btn">Search</button>
+                <button className="cart-btn">View Cart ({props.cartLength})</button>
             </div>
         </nav>
     )

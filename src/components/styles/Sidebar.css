@@ -1,7 +1,22 @@
 .sidebar {
     background-color: var(--seven);
-    display: grid;
-    grid-auto-rows: 50px;
+    display: flex;
+    flex-direction: column;
+    grid-auto-rows: auto;
     gap: 10px;
     padding: 20px;
+}
+
+.genre-btn {
+    height: 20px;
+    background-color: var(--nine);
+    border: none;
+    color: var(--fifty);
+    border-bottom: 3px solid var(--six);
+    border-right: 3px solid var(--six);
+}
+
+.genre-btn:hover {
+    background-color: var(--six);
+    cursor: pointer;
 }

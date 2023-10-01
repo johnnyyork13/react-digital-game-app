@@ -6,6 +6,20 @@
     align-items: flex-end;
 }
 
+/* all buttons styling */
+.nav-btn, .search-btn, .cart-btn {
+    background-color: var(--nine);
+    border: none;
+    color: var(--fifty);
+    border-bottom: 3px solid var(--six);
+    border-right: 3px solid var(--six);
+}
+
+.nav-btn:hover, .search-btn:hover, .cart-btn:hover {
+    background-color: var(--six);
+    cursor: pointer;
+}
+
 .nav-btn-container {
     display: flex;
     justify-content: space-between;
@@ -17,6 +31,8 @@
     height: 30px;
 }
 
+
+
 .search-container {
     position: relative;
     width: 30%;
@@ -24,9 +40,14 @@
     justify-content: flex-end;
 }
 
-.search {
+.search-bar {
     height: 30px;
     width: 300px;
+    padding-left: 10px;
+}
+
+.search-btn {
+    width: 100px;
 }
 
 .cart-btn {

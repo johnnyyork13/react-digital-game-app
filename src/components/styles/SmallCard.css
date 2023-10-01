@@ -2,7 +2,7 @@
     background-size: 200%;
     background-position: center;
     background-repeat: no-repeat;
-    transition-property: transform;
+    transition-property: transform, background-size;
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
     /* transition-property: transform, background-size;
@@ -11,7 +11,6 @@
 }
 
 .small-card:hover {
-    /* transform: scale(110%, 110%);
-    background-size: 150%;
-    cursor: pointer; */
+    transform: scale(300px, 300px);
+    cursor: pointer;
 }

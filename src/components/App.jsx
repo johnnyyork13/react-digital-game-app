@@ -12,12 +12,14 @@ import GameRow from './GameRow';
 
 function App() {
 
+  // const page = useParams();
+  // console.log("PAGE", page);
+
   const key = "6edf5284267f4b93812855603bb5435a";
   const cartHistory = useLocation();
 
+  const [cart, setCart] = React.useState(() => cartHistory.length > 0 ? cartHistory : [])
   const [allGames, setAllGames] = React.useState([])
-  // const page = useParams();
-  // console.log("PAGE", page);
 
   React.useEffect(() => {
     async function getGames() {
@@ -32,16 +34,20 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
+      <Nav
+        cartLength={cart.length}
+      />
       <Hero 
         img={allGames.length > 0 ? allGames[4].background_image : allGames}
       />
       <Sidebar />
-      <div className="game-row-container">
+      <div className="all-game-rows">
         <GameRow 
+          title="Recommended"
           gameList={allGames.slice(0, 10)}
         />
         <GameRow 
+          title="Popular"
           gameList={allGames.slice(10, 20)}
         />
       </div>
