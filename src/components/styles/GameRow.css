@@ -1,6 +1,39 @@
 .game-row {
-    display: grid;
-    overflow-y: auto;
-    grid-template-columns: repeat(10, 250px);
+    overflow-y: hidden;
     gap: 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+}
+
+.game-row::-webkit-scrollbar {
+    display: none;
+}
+
+.left-btn, .right-btn {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    background-color: var(--nine);
+    color: var(--fifty);
+    font-weight: bolder;
+    font-size: 1.5em;
+    border: none;
+    width: 35px;
+}
+
+.left-btn:hover, .right-btn:hover {
+    background-color: var(--six);
+    color: var(--nine);
+    cursor: pointer;
+}
+
+.left-btn {
+    left: 0px;
+}
+
+.right-btn {
+    right: 0px;
 }

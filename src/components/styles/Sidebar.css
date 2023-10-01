@@ -1,3 +1,7 @@
 .sidebar {
     background-color: var(--seven);
+    display: grid;
+    grid-auto-rows: 50px;
+    gap: 10px;
+    padding: 20px;
 }

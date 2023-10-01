@@ -6,21 +6,41 @@ import SmallCard from './SmallCard';
 
 export default function GameRow(props) {
 
-    //function that makes game list
-    // const games = props.gameList.map((game, index) => {(
-    //     <SmallCard 
-    //         key={uuidv4()}
-    //         game={game[index]}
-    //     />
-    // )})
-    const games = props.gameList.map(function(game) {
+    const [slidePosition, setSlidePosition] = React.useState(0)
+
+    const style = {
+        display: "grid",
+        gridTemplateColumns: `repeat(${props.gameList.length}, 250px)`
+    }
+
+    function slideshow(e) {
+        const adjustment = 100;
+        const min = 0;
+        const max = -1200;
+        if (e.target.name === "left") {
+            setSlidePosition((prev) => prev + adjustment > min ? prev : prev + adjustment);
+        } else if (e.target.name === "right") {
+            setSlidePosition(function(prev) {
+                console.log("RIGHT IS: ", prev);
+                return prev - adjustment < max ? prev : prev - adjustment;
+            })
+        }
+    }
+
+    const games = props.gameList.map(function(game, index) {
         //console.log(game);
-        return <SmallCard game={game}/>;
+        return <SmallCard
+                    key={index}
+                    game={game}
+                    position={slidePosition}
+                />;
     })
 
     return (
-        <div className="game-row">
+        <div className="game-row" style={style}>
+            <button className="left-btn" onClick={slideshow} name="left">{`<`}</button>
             {games}
+            <button className="right-btn" onClick={slideshow} name="right">{'>'}</button>
         </div>
     )
 }

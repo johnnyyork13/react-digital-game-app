@@ -4,10 +4,12 @@ import './styles/SmallCard.css';
 
 export default function SmallCard(props) {
 
-    console.log(props.game);
-
     const style = {
-        backgroundImage: `url(${props.game.background_image})`
+        // transitionProperty: "transform",
+        // transitionDuration: '0.5s',
+        // transitionTimingFunction: 'ease-in-out',
+        backgroundImage: `url(${props.game.background_image})`,
+        transform: `translateX(${props.position}px)`
     }
 
     return (

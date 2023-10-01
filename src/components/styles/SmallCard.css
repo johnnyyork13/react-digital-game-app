@@ -1,7 +1,10 @@
 .small-card {
-    background-size: 180%;
+    background-size: 200%;
     background-position: center;
     background-repeat: no-repeat;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
     /* transition-property: transform, background-size;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out; */
