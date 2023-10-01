@@ -1,3 +1,6 @@
 .game-row {
-    background-color: var(--six);
+    display: grid;
+    overflow-y: auto;
+    grid-template-columns: repeat(10, 250px);
+    gap: 15px;
 }

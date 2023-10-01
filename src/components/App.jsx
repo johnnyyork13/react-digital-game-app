@@ -38,9 +38,12 @@ function App() {
       />
       <Sidebar />
       <div className="game-row-container">
-        <GameRow />
-        <GameRow />
-        <GameRow />
+        <GameRow 
+          gameList={allGames.slice(0, 10)}
+        />
+        <GameRow 
+          gameList={allGames.slice(10, 20)}
+        />
       </div>
     </div>
   )
