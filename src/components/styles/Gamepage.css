@@ -1,0 +1,20 @@
+.gamepage {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    grid-template-areas: 
+        "nav nav"
+        "gameContainer gameContainer"
+}
+
+.game-container {
+    padding: 40px;
+    padding-top: 80px;
+    grid-area: gameContainer;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: 2fr 1.6fr;
+    grid-template-rows: 1fr;
+    background-color: var(--seven);
+}

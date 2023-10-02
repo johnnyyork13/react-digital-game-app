@@ -16,9 +16,8 @@ function App() {
   // console.log("PAGE", page);
 
   const key = "6edf5284267f4b93812855603bb5435a";
-  const cartHistory = useLocation();
+  const state = useLocation();
 
-  const [cart, setCart] = React.useState(() => cartHistory.length > 0 ? cartHistory : [])
   const [allGames, setAllGames] = React.useState([])
 
   React.useEffect(() => {
@@ -32,10 +31,12 @@ function App() {
     getGames();
   }, []);
 
+  console.log(state);
+
   return (
     <div className="App">
       <Nav
-        cartLength={cart.length}
+        cartLength={state.state ? state.state.cart.length : 0}
       />
       <Hero 
         img={allGames.length > 0 ? allGames[4].background_image : allGames}

@@ -1,17 +1,18 @@
 body {
     background-color: var(--four);
+    margin: 0;
 }
 
 .App {
     display: grid;
-    grid-template-columns: 100px 200px 1fr 100px;
+    grid-template-columns:300px 1fr;
     grid-template-rows: 64px 400px 600px;
     gap: 10px;
     grid-template-areas: 
-        "... nav nav ..."
-        "... hero hero ..."
-        "... sidebar allGameRows ..."
-        "... sidebar allGameRows ..." ;
+        " nav nav "
+        "hero hero"
+        "sidebar allGameRows"
+        "sidebar allGameRows" ;
 }
 
 .nav {
@@ -32,4 +33,5 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
+    margin-right: 100px;
 }

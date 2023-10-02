@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom'
 import './styles/main.css';
 import './styles/SmallCard.css';
 
 export default function SmallCard(props) {
+
+    let state = useLocation();
 
     const style = {
         // transitionProperty: "transform",
@@ -12,9 +15,15 @@ export default function SmallCard(props) {
         transform: `translateX(${props.position}px)`
     }
 
+    let title = props.game.name.split(" ").join('');
+
     return (
-        <div className="small-card" style={style}>
-            
-        </div>
+        <Link 
+            to={`/${title}`} 
+            className="small-card" 
+            style={style} 
+            state={{
+                currentGame: props.game, 
+                cart: state.cart ? state.cart : []}} />
     )
 }

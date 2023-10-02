@@ -1,0 +1,24 @@
+.slideshow-container {
+    display: grid;
+    grid-template-rows: 400px 135px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.main-image {
+    background-size: contain;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+.image-container {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.image-thumb {
+    width: 200px;
+}
