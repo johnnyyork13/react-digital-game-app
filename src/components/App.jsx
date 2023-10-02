@@ -31,7 +31,7 @@ function App() {
     getGames();
   }, []);
 
-  console.log(state);
+  // console.log(state);
 
   return (
     <div className="App">

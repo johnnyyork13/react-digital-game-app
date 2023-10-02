@@ -1,0 +1,16 @@
+.game-info-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 200px 100px;
+    gap: 10px;
+}
+
+.game-info-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.game-info-text {
+    overflow-y: auto;
+}

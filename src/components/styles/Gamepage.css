@@ -4,7 +4,19 @@
     gap: 10px;
     grid-template-areas: 
         "nav nav"
+        "banner banner"
         "gameContainer gameContainer"
+}
+
+.banner {
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 2em;
+    font-weight: bolder;
 }
 
 .game-container {
@@ -14,7 +26,8 @@
     margin-left: 100px;
     margin-right: 100px;
     display: grid;
-    grid-template-columns: 2fr 1.6fr;
+    grid-template-columns: 2fr 1.3fr;
     grid-template-rows: 1fr;
+    gap: 100px;
     background-color: var(--seven);
 }

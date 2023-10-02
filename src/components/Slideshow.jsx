@@ -4,15 +4,15 @@ import './styles/Slideshow.css';
 export default function Slideshow(props) {
 
     //map all of the images
-    const [currentImage, setCurrentImage] = React.useState(props.game.short_screenshots[0].image)
+    const [currentImage, setCurrentImage] = React.useState(props.screenshots[1].image)
 
     //console.log(props.game.short_screenshots);
     function handleUpdateImage(e) {
         setCurrentImage(e.target.src);
     }
 
-    const mappedImages = props.game.short_screenshots.map((image) => {
-        return <img 
+    const mappedImages = props.screenshots.map((image, index) => {
+        return index > 0 && <img 
                     src={image.image} 
                     className="image-thumb" 
                     onClick={handleUpdateImage}    

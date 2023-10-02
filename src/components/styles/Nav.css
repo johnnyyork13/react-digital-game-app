@@ -6,6 +6,21 @@
     align-items: flex-end;
     margin-left: 100px;
     margin-right: 100px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    color: var(--fifty);
+    font-size: 1em;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    width: 150px;
 }
 
 /* all buttons styling */
@@ -23,8 +38,9 @@
 }
 
 .nav-btn-container {
+    margin-left: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 50%;
 }
 
