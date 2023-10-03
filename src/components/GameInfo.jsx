@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 import './styles/GameInfo.css';
 
 export default function GameInfo(props) {
@@ -43,7 +44,9 @@ export default function GameInfo(props) {
                             currentGame: state.state.currentGame,
                             cart: [
                                 ...state.state.cart,
-                                state.state.currentGame
+                                {...state.state.currentGame,
+                                    key: uuidv4()
+                                }
                             ]
                         }}
                         >Add to Cart

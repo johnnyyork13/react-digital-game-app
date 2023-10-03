@@ -8,24 +8,33 @@ import './styles/Gamepage.css';
 
 export default function Gamepage(props) {
 
-    const state = useLocation();
     const key = "6edf5284267f4b93812855603bb5435a";
     //console.log(state);
+
+
+    let checkState = useLocation();
+
+    const [state, setState] = React.useState(function(){
+        return {
+          currentGame: checkState.state.currentGame ? checkState.state.currentGame : {},
+          cart: checkState.state.cart ? checkState.state.cart : []
+        }
+    });
 
     return (
         <div className="gamepage">
             <Nav 
-                cartLength={state.state ? state.state.cart.length : 0}
+                cartLength={state.cart.length}
             />
             <div className="banner">
-                {state.state.currentGame.name}
+                {state.currentGame.name}
             </div>
             <div className="game-container">
                 <Slideshow
-                    screenshots={state.state.currentGame.short_screenshots}
+                    screenshots={state.currentGame.short_screenshots}
                 />
                 <GameInfo 
-                    id={state.state.currentGame.id}
+                    id={state.currentGame.id}
                     apiKey={key}
                 />
             </div>

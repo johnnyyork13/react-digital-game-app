@@ -16,8 +16,8 @@ export default function Nav(props) {
                     to="/" 
                     className="logo"
                     state={{
-                        currentGame: state.state.currentGame,
-                        cart: state.state.cart 
+                        currentGame: state.state ? state.state.currentGame : null,
+                        cart: state.state ? state.state.cart : null
                     }}
                     >LOGO
                 </Link>
@@ -28,7 +28,11 @@ export default function Nav(props) {
             <div className="search-container">
                 <input type="search" className="search-bar" placeholder="Search for a Game"></input>
                 <button className="search-btn">Search</button>
-                <button className="cart-btn">View Cart ({props.cartLength})</button>
+                <button 
+                    onClick={() => props.setOpenCart(true)}
+                    className="cart-btn"
+                    >View Cart ({props.cartLength})
+                </button>
             </div>
         </nav>
     )

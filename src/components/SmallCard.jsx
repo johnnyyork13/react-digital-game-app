@@ -24,7 +24,7 @@ export default function SmallCard(props) {
             style={style} 
             state={{
                 currentGame: props.game, 
-                cart: state.state.cart
+                cart: state.state && state.state.cart ? state.state.cart : []
             }} />
     )
 }

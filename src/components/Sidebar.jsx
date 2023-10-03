@@ -9,15 +9,15 @@ export default function Sidebar(props) {
     return (
         <div className="sidebar">
             <h2>Genres</h2>
-            <button class="genre-btn">Action</button>
-            <button class="genre-btn">Adventure</button>
-            <button class="genre-btn">Casual</button>
-            <button class="genre-btn">Indie</button>
-            <button class="genre-btn">MMORPG</button>
-            <button class="genre-btn">Racing</button>
-            <button class="genre-btn">Simulation</button>
-            <button class="genre-btn">Sports</button>
-            <button class="genre-btn">Strategy</button>
+            <button className="genre-btn">Action</button>
+            <button className="genre-btn">Adventure</button>
+            <button className="genre-btn">Casual</button>
+            <button className="genre-btn">Indie</button>
+            <button className="genre-btn">MMORPG</button>
+            <button className="genre-btn">Racing</button>
+            <button className="genre-btn">Simulation</button>
+            <button className="genre-btn">Sports</button>
+            <button className="genre-btn">Strategy</button>
         </div>
     )
 }

@@ -1,0 +1,9 @@
+.cart-container {
+    width: 400px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: var(--eightTransparent);
+    z-index: 2;
+}

@@ -1,0 +1,24 @@
+.cart-item {
+    color: var(--fifty);
+    display: grid;
+    grid-template-columns: .7fr .7fr;
+    grid-auto-rows: 120px;
+    padding: 20px;
+    gap: 10px;
+    position: relative;
+}
+
+.cart-item img {
+    width: 100%;
+}
+
+.cart-item-description {
+    position: relative;
+}
+
+.remove-cart-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    height: 30px;
+}

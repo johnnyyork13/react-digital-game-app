@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/Slideshow.css';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Slideshow(props) {
 
@@ -13,6 +14,7 @@ export default function Slideshow(props) {
 
     const mappedImages = props.screenshots.map((image, index) => {
         return index > 0 && <img 
+                    key={uuidv4()}
                     src={image.image} 
                     className="image-thumb" 
                     onClick={handleUpdateImage}    
