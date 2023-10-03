@@ -21,9 +21,9 @@ export default function Nav(props) {
                     }}
                     >LOGO
                 </Link>
-                <button className="nav-btn">Popular</button>
-                <button className="nav-btn">Library</button>
-                <button className="nav-btn">Random Game</button>
+                <button className="nav-btn">Popular Games</button>
+                <button className="nav-btn">My Games</button>
+                <button className="nav-btn">Wishlist</button>
             </div>
             <div className="search-container">
                 <input type="search" className="search-bar" placeholder="Search for a Game"></input>

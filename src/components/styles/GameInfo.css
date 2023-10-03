@@ -1,16 +1,60 @@
 .game-info-container {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 250px 200px 100px;
+    grid-template-columns: .5fr .5fr;
+    grid-template-rows: 250px 150px 100px;
     gap: 10px;
+    grid-template-areas: 
+        "infoImage infoImage"
+        "infoText infoText"
+        "infoPublisher infoPublisher";
 }
 
 .game-info-image {
+    grid-area: infoImage;
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;
 }
 
+.game-info-publishers {
+    grid-area: infoPublisher;
+    color: var(--fifty);
+    text-align: start;
+    position: relative;
+}
+
+.game-info-btn {
+    position: absolute;
+    right: 0;
+    height: 40px;
+    width: 120px;
+    background-color: var(--nine);
+    border: none;
+    color: var(--fifty);
+    border-bottom: 3px solid var(--six);
+    border-right: 3px solid var(--six);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.game-info-btn:hover {
+    background-color: var(--six);
+    cursor: pointer;
+}
+
+.add-cart-btn {
+    top: 20px;
+}
+
+.wishlist-btn {
+    top: 70px;
+}
+
 .game-info-text {
+    grid-area: infoText;
     overflow-y: auto;
+    color: var(--fifty);
+    font-size: 1.2em;
 }
