@@ -6,14 +6,12 @@ body {
 .App {
     position: relative;
     display: grid;
-    grid-template-columns:300px 1fr;
-    grid-template-rows: 64px 400px 600px;
+    grid-template-columns:1fr;
+    grid-template-rows: 64px 1fr;
     gap: 10px;
     grid-template-areas: 
-        " nav nav "
-        "hero hero"
-        "sidebar allGameRows"
-        "sidebar allGameRows" ;
+        "nav nav";
+    
 }
 
 .nav {

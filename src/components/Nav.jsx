@@ -7,8 +7,6 @@ import './styles/Hero.css';
 
 export default function Nav(props) {
 
-    const transferUser = useLocation();
-
     return (
         <nav className="nav">
             <div className="nav-btn-container">
@@ -20,13 +18,23 @@ export default function Nav(props) {
                     }}
                     >LOGO
                 </Link>
-                <button className="nav-btn">Popular Games</button>
-                <button className="nav-btn">My Games</button>
-                <button 
+                <Link 
                     className="nav-btn"
-                    onClick={function() {console.log(props.user.wishList)}}
+                    to="/"
+                    state={{
+                        ...props.user
+                    }}
+                    >Store
+                </Link>
+                <Link 
+                    className="nav-btn"
+                    to="/wishlist"
+                    state={{
+                        ...props.user
+                    }}
                 >Wishlist
-                </button>
+                </Link>
+                <Link className="nav-btn">Roll the Dice</Link>
             </div>
             <div className="search-container">
                 <input type="search" className="search-bar" placeholder="Search for a Game"></input>

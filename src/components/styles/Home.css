@@ -1,0 +1,11 @@
+.home {
+    position: relative;
+    display: grid;
+    grid-template-columns:300px 1fr;
+    grid-template-rows: 400px 600px;
+    gap: 10px;
+    grid-template-areas: 
+        "hero hero"
+        "sidebar allGameRows"
+        "sidebar allGameRows" ;
+}

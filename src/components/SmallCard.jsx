@@ -19,12 +19,13 @@ export default function SmallCard(props) {
 
     return (
         <Link 
-            to={`/${title}`} 
+            to={`/game/${title}`} 
             className="small-card" 
             style={style} 
             state={{
                 ...props.user,
                 currentGame: props.game,
-            }} />
+            }} 
+        />
     )
 }

@@ -30,6 +30,10 @@
     color: var(--fifty);
     border-bottom: 3px solid var(--six);
     border-right: 3px solid var(--six);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-btn:hover, .search-btn:hover, .cart-btn:hover {

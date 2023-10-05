@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import Nav from './Nav'
 import Cart from './Cart';
 import Slideshow from './Slideshow';
@@ -9,13 +9,18 @@ import './styles/Gamepage.css';
 
 export default function Gamepage(props) {
 
-    const key = "6edf5284267f4b93812855603bb5435a";
-    const globalState = useLocation();
+    const transferUser = useLocation();
+    //console.log("GLOBALSTATE", globalState);
+    const params = useParams();
+
+    //console.log("Gamepage params", params);
 
     //console.log("globalstate", globalState);
 
-    const [user, setUser] = React.useState({...globalState.state})
+    const [user, setUser] = React.useState({...transferUser.state})
+
     const [openCart, setOpenCart] = React.useState(false);
+    //console.log("USER", user);
 
     return (
         <div className="gamepage">
@@ -34,7 +39,7 @@ export default function Gamepage(props) {
                 <GameInfo 
                     user={user}
                     setUser={setUser}
-                    apiKey={key}
+                    apiKey={user.apiKey}
                 />
             </div>
             {openCart && <Cart 

@@ -23,7 +23,8 @@ export default function GameInfo(props) {
         backgroundImage: `url(${game.background_image})`
     }
 
-    //console.log(state.state);
+    // console.log(props.user.currentGame);
+    // console.log(game);
 
     return (
         <div className="game-info-container">
