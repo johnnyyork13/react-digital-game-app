@@ -2,7 +2,7 @@ import './styles/main.css';
 import './styles/Colors.css';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, Navigate } from 'react-router-dom';
 
 //component imports
 import Nav from './Nav';
@@ -17,17 +17,27 @@ function App() {
   // console.log("PAGE", page);
 
   const key = "6edf5284267f4b93812855603bb5435a";
-  let checkState = useLocation();
+  const transferUser = useLocation();
 
-  const [state, setState] = React.useState(function(){
+  const [user, setUser] = React.useState(function(){
     return {
-      currentGame: checkState.state && checkState.state.currentGame ? checkState.state.currentGame : {},
-      cart: checkState.state && checkState.state.cart ? checkState.state.cart : []
+      currentGame: transferUser.state && transferUser.state.currentGame ? transferUser.state.currentGame : {},
+      cart: transferUser.state && transferUser.state.cart ? transferUser.state.cart : [],
+      wishList: transferUser.state && transferUser.state.wishList ? transferUser.state.wishList : []
     }
   });
 
   const [allGames, setAllGames] = React.useState([])
   const [openCart, setOpenCart] = React.useState(false);
+  const [fireRender, setFireRender] = React.useState(false);
+
+  React.useEffect(() => {
+    if (transferUser.state) {
+      setUser(() => ({
+        ...transferUser.state
+      }))
+    }
+  }, [fireRender])
 
   React.useEffect(() => {
     async function getGames() {
@@ -40,35 +50,36 @@ function App() {
     getGames();
   }, []);
 
-  function handleRemoveCartItem(item) {
-    console.log(item);
-  }
-  // console.log(state);
-
   return (
     <div className="App">
       <Nav
-        cartLength={state.cart.length}
+        user={user}
+        cartLength={user.cart.length}
         setOpenCart={setOpenCart}
       />
       <Hero 
         img={allGames.length > 0 ? allGames[4].background_image : allGames}
+        game={allGames[4] && allGames[4]}
+        user={user}
       />
       <Sidebar />
       <div className="all-game-rows">
         <GameRow 
-          title="Recommended"
+          title="Popular"
           gameList={allGames.slice(0, 10)}
+          user={user}
         />
         <GameRow 
-          title="Popular"
+          title="Recommended"
           gameList={allGames.slice(10, 20)}
+          user={user}
         />
       </div>
       {openCart && <Cart 
           setOpenCart={setOpenCart}
-          cart={state.cart}
-          handleRemoveCartItem={handleRemoveCartItem}
+          setUser={setUser}
+          user={user}
+          setFireRender={setFireRender}
       />}
     </div>
   )

@@ -32,6 +32,7 @@ export default function GameRow(props) {
                     key={index}
                     game={game}
                     position={slidePosition}
+                    user={props.user}
                 />;
     })
 

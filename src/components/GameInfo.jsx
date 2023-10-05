@@ -5,14 +5,12 @@ import './styles/GameInfo.css';
 
 export default function GameInfo(props) {
 
-    const state = useLocation();
-
     const [game, setGame] = React.useState({});
     const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
         async function getGame() {
-            const url = `https://api.rawg.io/api/games/${props.id}?token&key=${props.apiKey}`;
+            const url = `https://api.rawg.io/api/games/${props.user.currentGame.id}?token&key=${props.apiKey}`;
             fetch(url)
             .then((res) => res.json())
             .then((data) => setGame(data))
@@ -25,7 +23,7 @@ export default function GameInfo(props) {
         backgroundImage: `url(${game.background_image})`
     }
 
-    //console.log(game);
+    //console.log(state.state);
 
     return (
         <div className="game-info-container">
@@ -41,17 +39,27 @@ export default function GameInfo(props) {
                         className="game-info-btn add-cart-btn"
                         to="/"
                         state={{
-                            currentGame: state.state.currentGame,
+                            ...props.user,
                             cart: [
-                                ...state.state.cart,
-                                {...state.state.currentGame,
+                                ...props.user.cart,
+                                {...props.user.currentGame,
                                     key: uuidv4()
                                 }
                             ]
                         }}
                         >Add to Cart
                     </Link>
-                    <button className="game-info-btn wishlist-btn">Add to Wishlist</button>
+                    <button 
+                        className="game-info-btn wishlist-btn"
+                        onClick={() => props.setUser((prev) => ({
+                            ...prev,
+                            wishList: [
+                                ...prev.wishList,
+                                props.user.currentGame
+                            ]
+                        }))}
+                    >Add to Wishlist
+                </button>
             </div>
         </div>
     )

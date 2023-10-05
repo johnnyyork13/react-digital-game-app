@@ -5,8 +5,6 @@ import './styles/SmallCard.css';
 
 export default function SmallCard(props) {
 
-    let state = useLocation();
-
     const style = {
         // transitionProperty: "transform",
         // transitionDuration: '0.5s',
@@ -17,14 +15,16 @@ export default function SmallCard(props) {
 
     let title = props.game.name.split(" ").join('');
 
+    //console.log("SMALLCARD STATE", props.user);
+
     return (
         <Link 
             to={`/${title}`} 
             className="small-card" 
             style={style} 
             state={{
-                currentGame: props.game, 
-                cart: state.state && state.state.cart ? state.state.cart : []
+                ...props.user,
+                currentGame: props.game,
             }} />
     )
 }

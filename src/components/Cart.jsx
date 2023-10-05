@@ -5,11 +5,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Cart(props) {
 
-    const cartItems = props.cart.map((cartItem) => {
+    const cartItems = props.user.cart.map((cartItem) => {
         return <CartItem 
             key={uuidv4()}
             game={cartItem}
-            handleRemoveCartItem={props.handleRemoveCartItem}
+            setUser={props.setUser}
         />
     })
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/main.css';
+import { Link } from 'react-router-dom';
 
 export default function Hero(props) {
 
@@ -7,9 +8,17 @@ export default function Hero(props) {
         backgroundImage: `url(${props.img})`
     }
 
+    let title = props.game && props.game.name.split(" ").join('');
+
     return (
-        <div className="hero" style={style}>
-            
-        </div>
+        <Link 
+            className="hero" style={style}
+            to={`/${title}`}
+            state={{
+                ...props.user,
+                currentGame: props.game
+            }}
+        >
+        </Link>
     )
 }
