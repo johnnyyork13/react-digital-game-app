@@ -2,6 +2,7 @@
     display: grid;
     /* grid-template-columns: 1fr; */
     grid-template-rows: 30px auto;
+    color: var(--eight);
 }
 
 .game-row-container h2 {

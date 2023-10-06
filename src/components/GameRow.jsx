@@ -16,7 +16,7 @@ export default function GameRow(props) {
     function slideshow(e) {
         const adjustment = 100;
         const min = 0;
-        const max = -1800;
+        const max = -2000;
         if (e.target.name === "left") {
             setSlidePosition((prev) => prev + adjustment > min ? prev : prev + adjustment);
         } else if (e.target.name === "right") {
