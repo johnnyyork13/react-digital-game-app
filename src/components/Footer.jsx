@@ -7,7 +7,7 @@ export default function Footer(props) {
 
     return (
         <div className="footer">
-            Design and Developed by Johnny York | 2023 | Images and Data Derived from the RAWG API
+            Design and developed by Johnny York | 2023 | Images and data derived from the RAWG API
         </div>
     )
 }

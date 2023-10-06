@@ -36,12 +36,12 @@ function App() {
         setOpenCart={setOpenCart}
         apiKey={key}
       />
-      {openCart && <Cart 
+      {/* {openCart && <Cart 
         setOpenCart={setOpenCart}
         setUser={setUser}
         user={user}
         // setFireRender={setFireRender}
-      />}
+      />} */}
       <Home 
         user={user}
         setUser={setUser}

@@ -4,6 +4,7 @@ import './styles/Colors.css';
 import './styles/Nav.css';
 import './styles/main.css';
 import './styles/Hero.css';
+import logo from '../assets/logo.png';
 
 export default function Nav(props) {
 
@@ -25,7 +26,7 @@ export default function Nav(props) {
                     name: e.target.value
                 }
             })
-            console.log(queryParam)
+            //console.log(queryParam)
         } else {
             setQueryParam(Math.floor(Math.random() * 500000));
         }
@@ -38,7 +39,7 @@ export default function Nav(props) {
                 const url = `https://api.rawg.io/api/games/${queryParam.name ? queryParam.name : queryParam}?token&key=${props.apiKey}`;
                   fetch(url)
                   .then((res) => res.json())
-                  .then(function(data) {console.log("DATA", data); return data})
+                //   .then(function(data) {console.log("DATA", data); return data})
                   .then((data) => setGame(data));
                 }
                 getGames();
@@ -47,22 +48,23 @@ export default function Nav(props) {
 
     return (
         <nav className="nav">
-            <div className="nav-btn-container">
-                <Link 
+            <Link 
                     to="/" 
+                    style={{backgroundImage: `url(${logo})`}}
                     className="logo"
                     state={{
                         ...props.user
                     }}
-                    >LOGO
+                    >
                 </Link>
+            <div className="nav-btn-container">
                 <Link 
                     className="nav-btn"
                     to="/"
                     state={{
                         ...props.user
                     }}
-                    >Store
+                    >Browse
                 </Link>
                 <Link 
                     className="nav-btn"
@@ -70,7 +72,7 @@ export default function Nav(props) {
                     state={{
                         ...props.user
                     }}
-                >Wishlist
+                >My Wishlist
                 </Link>
                 <Link 
                     className="nav-btn"
@@ -100,11 +102,11 @@ export default function Nav(props) {
                     onClick={handleSearch}
                     >Search
                 </Link>
-                <button 
+                {/* <button 
                     onClick={() => props.setOpenCart(true)}
                     className="cart-btn"
                     >View Cart ({props.cartLength})
-                </button>
+                </button> */}
             </div>
         </nav>
     )

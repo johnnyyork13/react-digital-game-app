@@ -46,6 +46,5 @@ body {
 }
 
 .footer {
-    background-color: var(--six);
     grid-area: footer;
 }

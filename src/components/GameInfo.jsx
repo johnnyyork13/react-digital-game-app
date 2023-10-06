@@ -7,6 +7,11 @@ export default function GameInfo(props) {
 
     const [game, setGame] = React.useState({});
     const [error, setError] = React.useState(null);
+    const [onWishList, setOnWishList] = React.useState(props.user.wishList.forEach(function(item) {
+        if (item.name === game.name) {
+            return true
+        }
+    }))
 
     React.useEffect(() => {
         async function getGame() {
@@ -23,6 +28,10 @@ export default function GameInfo(props) {
         backgroundImage: `url(${game.background_image})`
     }
 
+    const wishListStyle = {
+
+    }
+
     // console.log(props.user.currentGame);
     // console.log(game);
 
@@ -36,7 +45,7 @@ export default function GameInfo(props) {
                     <p>Publisher: publisher</p>
                     <p>Developer: developer</p>
                     <p>Release Date: xx/xx/xxxx</p>
-                    <Link 
+                    {/* <Link 
                         className="game-info-btn add-cart-btn"
                         to="/"
                         state={{
@@ -49,18 +58,23 @@ export default function GameInfo(props) {
                             ]
                         }}
                         >Add to Cart
-                    </Link>
+                    </Link> */}
                     <button 
                         className="game-info-btn wishlist-btn"
+                        style={wishListStyle}
                         onClick={() => props.setUser((prev) => ({
                             ...prev,
+                            currentGame: {...prev.currentGame,
+                                            onWishList: prev.onWishList ? false : true},
                             wishList: [
                                 ...prev.wishList,
-                                props.user.currentGame
+                                {...props.user.currentGame,
+                                    onWishList: prev.onWishList ? false : true}
                             ]
                         }))}
-                    >Add to Wishlist
+                    >{props.user.currentGame.onWishList ? "Remove from Wishlist" : "Add to Wishlist"}
                 </button>
+                <button onClick={() => console.log(props.user)}>Butt</button>
             </div>
         </div>
     )

@@ -44,11 +44,11 @@ export default function Gamepage(props) {
                     apiKey={user.apiKey}
                 />
             </div>
-            {openCart && <Cart 
+            {/* {openCart && <Cart 
                 setOpenCart={setOpenCart}
                 setUser={setUser}
                 user={user}
-            />}
+            />} */}
             <Footer />
         </div>
     )

@@ -1,24 +1,18 @@
 .nav {
     background-color: var(--seven);
     height: 64px;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    position: relative;
+    display: grid;
+    grid-template-columns: 200px 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "logo buttons search";
+    gap: 20px;
 }
 
 .logo {
-    position: absolute;
-    color: var(--fifty);
-    font-size: 1em;
-    left: 0;
-    top: 0;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
-    width: 150px;
+    width: 200px;
+    grid-area: logo;
 }
 
 /* all buttons styling */
@@ -40,24 +34,27 @@
 }
 
 .nav-btn-container {
-    margin-left: 100px;
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
+    grid-area: buttons;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: flex-end;
+    gap: 20px;
+    grid-auto-columns: .8fr;
 }
 
 .nav-btn {
-    width: 200px;
     height: 30px;
 }
 
 
 
 .search-container {
+    grid-area: search;
     position: relative;
-    width: 30%;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
 }
 
 .search-bar {
@@ -68,6 +65,7 @@
 
 .search-btn {
     width: 100px;
+    height: 30px;
 }
 
 .cart-btn {
