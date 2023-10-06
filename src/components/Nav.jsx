@@ -7,6 +7,24 @@ import './styles/Hero.css';
 
 export default function Nav(props) {
 
+    const [randomGame, setRandomGame] = React.useState({
+        name: "test",
+    });
+
+    //API call for random game button
+    React.useEffect(() => {
+        const randomGameInt = Math.floor(Math.random() * 500000);
+        async function getGames() {
+        const url = `https://api.rawg.io/api/games/${randomGameInt}?token&key=${props.apiKey}`;
+          fetch(url)
+          .then((res) => res.json())
+          .then((data) => setRandomGame(data.results));
+        }
+        getGames();
+    }, []);
+
+    console.log(randomGame);
+
     return (
         <nav className="nav">
             <div className="nav-btn-container">
@@ -34,7 +52,15 @@ export default function Nav(props) {
                     }}
                 >Wishlist
                 </Link>
-                <Link className="nav-btn">Roll the Dice</Link>
+                <Link 
+                    className="nav-btn"
+                    state={{
+                        ...props.user,
+                        currentGame: randomGame
+                    }}
+                    // to={`/game/${randomGame.name}`}
+                    >Roll the Dice
+                </Link>
             </div>
             <div className="search-container">
                 <input type="search" className="search-bar" placeholder="Search for a Game"></input>

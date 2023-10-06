@@ -16,20 +16,15 @@ export default function Results(props) {
     const [openCart, setOpenCart] = React.useState(false);
     const [render, setRender] = React.useState(false);
 
-    console.log(user.genre);
-
     React.useEffect(() => {
-        setUser({...transferUser.state});
         async function getGames() {
-          const url = `https://api.rawg.io/api/games?genres=${user.genre}&token&key=${user.apiKey}`
+          const url = `https://api.rawg.io/api/games?genres=${page.name}&token&key=${user.apiKey}`
           fetch(url)
           .then((res) => res.json())
-          .then((data) => setAllGames(data.results));
+          .then(function(data) {setAllGames(data.results)});
         }
         getGames();
       }, [page.name]);
-
-      //console.log(allGames);
 
     return (
         <div className="results-container">
@@ -37,6 +32,7 @@ export default function Results(props) {
                 user={user}
                 cartLength={user.cart.length}
                 setOpenCart={setOpenCart}
+                apiKey={user.apiKey}
             />
             <Sidebar 
                 apiKey={user.apiKey}

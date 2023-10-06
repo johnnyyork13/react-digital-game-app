@@ -10,17 +10,10 @@ import './styles/Gamepage.css';
 export default function Gamepage(props) {
 
     const transferUser = useLocation();
-    //console.log("GLOBALSTATE", globalState);
-    const params = useParams();
-
-    //console.log("Gamepage params", params);
-
-    //console.log("globalstate", globalState);
 
     const [user, setUser] = React.useState({...transferUser.state})
 
     const [openCart, setOpenCart] = React.useState(false);
-    //console.log("USER", user);
 
     return (
         <div className="gamepage">
@@ -28,6 +21,7 @@ export default function Gamepage(props) {
                 cartLength={user.cart.length}
                 user={user}
                 setOpenCart={setOpenCart}
+                apiKey={user.apiKey}
             />
             <div className="banner">
                 {user.currentGame.name}

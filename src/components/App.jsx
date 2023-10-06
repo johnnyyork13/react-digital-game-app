@@ -33,6 +33,7 @@ function App() {
         user={user}
         cartLength={user.cart.length}
         setOpenCart={setOpenCart}
+        apiKey={key}
       />
       {openCart && <Cart 
         setOpenCart={setOpenCart}

@@ -6,8 +6,6 @@ import SmallCard from './SmallCard';
 
 export default function GameRow(props) {
 
-    console.log('here');
-
     const [slidePosition, setSlidePosition] = React.useState(0)
 
     const style = {

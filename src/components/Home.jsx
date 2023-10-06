@@ -22,7 +22,7 @@ export default function Home(props) {
       getGames();
     }, []);
 
-    console.log(allGames);
+    //console.log(allGames);
 
     return (
         <div className="home">
