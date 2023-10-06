@@ -7,6 +7,7 @@
     grid-template-areas: 
     "logo buttons search";
     gap: 20px;
+    box-shadow: var(--shadow);
 }
 
 .logo {

@@ -3,4 +3,5 @@
     background-position-x: center;
     background-size: 80%;
     background-color: black;
+    box-shadow: var(--shadow);
 }

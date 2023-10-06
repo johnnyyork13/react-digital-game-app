@@ -13,4 +13,5 @@ html {
     --textDark: #0f172a;
     --textLight: #f1f5f9;
     --eightTransparent: #1e293bE6;
+    --shadow: 5px 5px .3em .1em rgba(0,0,0,.5);
 }

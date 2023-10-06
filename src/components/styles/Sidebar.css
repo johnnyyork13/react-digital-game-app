@@ -7,6 +7,7 @@
     padding: 15px;
     color: var(--fifty);
     text-align: center;
+    box-shadow: var(--shadow);
 }
 
 .genre-btn {

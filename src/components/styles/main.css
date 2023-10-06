@@ -42,7 +42,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: 250px;
-    gap: 15px;
+    gap: 5px;
 }
 
 .footer {
