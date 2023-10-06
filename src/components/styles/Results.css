@@ -1,11 +1,12 @@
 .results-container {
     position: relative;
     display: grid;
-    grid-template-columns:300px 1fr;
-    grid-template-rows: 64px 400px 400px;
+    grid-template-columns: 200px 1200px;
+    grid-template-rows: 64px 1fr ;
     gap: 10px;
     grid-template-areas:
         "nav nav"
+        "sidebar allGameRows"
         "sidebar allGameRows"
         "sidebar allGameRows";
 }

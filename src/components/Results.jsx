@@ -52,6 +52,12 @@ export default function Results(props) {
                     user={user}
                     setUser={setUser}
                 />
+                <GameRow
+                    title="Popular"
+                    gameList={allGames.slice(10, 20)}
+                    user={user}
+                    setUser={setUser}
+                />
             </div>
         </div>
     )

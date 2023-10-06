@@ -11,8 +11,11 @@ export default function Nav(props) {
         name: ""
     });
 
-    const [queryParam, setQueryParam] = React.useState(null);
+    const [queryParam, setQueryParam] = React.useState(Math.floor(Math.random() * 500000));
 
+    function handleSearch() {
+
+    }
 
     function updateQueryParam(e) {
         if (e.target.name === "search") {
@@ -31,18 +34,16 @@ export default function Nav(props) {
     //API call for random game button
     React.useEffect(() => {
         if (queryParam) {
-
             async function getGames() {
                 const url = `https://api.rawg.io/api/games/${queryParam.name ? queryParam.name : queryParam}?token&key=${props.apiKey}`;
                   fetch(url)
                   .then((res) => res.json())
+                  .then(function(data) {console.log("DATA", data); return data})
                   .then((data) => setGame(data));
                 }
                 getGames();
         }
     }, [queryParam]);
-
-    // console.log(randomGame);
 
     return (
         <nav className="nav">
@@ -77,6 +78,7 @@ export default function Nav(props) {
                         ...props.user,
                         currentGame: game
                     }}
+                    onClick={updateQueryParam}
                     to={`/game/${game.name}`}
                     >Roll the Dice
                 </Link>
@@ -95,6 +97,7 @@ export default function Nav(props) {
                         ...props.user,
                         currentGame: game
                     }}
+                    onClick={handleSearch}
                     >Search
                 </Link>
                 <button 

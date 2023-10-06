@@ -1,17 +1,18 @@
 .gamepage {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1400px;
+    grid-template-rows: 64px 40px 1fr 50px;
     gap: 10px;
     grid-template-areas: 
-        "nav nav"
-        "banner banner"
-        "gameContainer gameContainer"
+        "nav"
+        "banner"
+        "gameContainer"
+        "footer"
 }
 
 .banner {
     margin-left: 100px;
     margin-right: 100px;
-    height: 40px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -23,8 +24,6 @@
     padding: 40px;
     padding-top: 80px;
     grid-area: gameContainer;
-    margin-left: 100px;
-    margin-right: 100px;
     display: grid;
     grid-template-columns: 2fr 1.3fr;
     grid-template-rows: 1fr;

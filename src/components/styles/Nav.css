@@ -4,8 +4,6 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    margin-left: 100px;
-    margin-right: 100px;
     position: relative;
 }
 

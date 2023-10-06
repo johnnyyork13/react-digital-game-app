@@ -9,6 +9,7 @@ import Nav from './Nav';
 import Cart from './Cart';
 import Home from './Home';
 import Gamepage from './Gamepage';
+import Footer from './Footer';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
         setUser={setUser}
         apiKey={key}
       />
+      <Footer />
     </div>
   )
 }

@@ -3,14 +3,22 @@ body {
     margin: 0;
 }
 
+#root {
+    display: flex;
+    justify-content: center;
+}
+
 .App {
     position: relative;
     display: grid;
-    grid-template-columns:1fr;
-    grid-template-rows: 64px 1fr;
+    grid-template-columns:1400px;
+    grid-template-rows: 64px 1fr 50px;
     gap: 10px;
     grid-template-areas: 
-        "nav nav";
+        "nav"
+        "home"
+        "footer"
+        ;
 }
 
 .nav {
@@ -21,6 +29,10 @@ body {
     grid-area: hero;
 }
 
+.home {
+    grid-area: home;
+}
+
 .sidebar {
     grid-area: sidebar;
 }
@@ -29,7 +41,11 @@ body {
     grid-area: allGameRows;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    margin-right: 100px;
+    grid-auto-rows: 250px;
+    gap: 15px;
+}
+
+.footer {
+    background-color: var(--six);
+    grid-area: footer;
 }
