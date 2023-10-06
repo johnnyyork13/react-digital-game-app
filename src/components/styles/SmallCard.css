@@ -1,16 +1,47 @@
 .small-card {
-    background-size: 200%;
-    background-position: center;
-    background-repeat: no-repeat;
     transition-property: transform, background-size;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
     /* transition-property: transform, background-size;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out; */
 }
 
+.small-card-overlay {
+    pointer-events: none;
+    visibility: hidden;
+    background-color: rgba(0,0,0,0.7);
+    color: var(--fifty);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    left: 0;
+    top: 0;
+}
+
+.small-card-link {
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
 .small-card:hover {
     transform: scale(300px, 300px);
     cursor: pointer;
+}
+
+.small-card:hover .small-card-overlay {
+    visibility: visible;
 }

@@ -9,7 +9,6 @@ export default function SmallCard(props) {
         // transitionProperty: "transform",
         // transitionDuration: '0.5s',
         // transitionTimingFunction: 'ease-in-out',
-        backgroundImage: `url(${props.game.background_image})`,
         transform: `translateX(${props.position}px)`
     }
 
@@ -18,14 +17,20 @@ export default function SmallCard(props) {
     let title = props.game.name.split(" ").join('');
 
     return (
-        <Link 
-            to={`/game/${title}`} 
-            className="small-card" 
-            style={style} 
-            state={{
-                ...props.user,
-                currentGame: props.game,
-            }} 
-        />
+        <div className="small-card" style={style}>
+            <div className="small-card-overlay">
+                {props.game.name}
+            </div>
+            <Link 
+                to={`/game/${title}`} 
+                className="small-card-link"  
+                style={{backgroundImage: `url(${props.game.background_image})`}}
+                state={{
+                    ...props.user,
+                    currentGame: props.game,
+                }} 
+            />
+        </div>
+        
     )
 }
