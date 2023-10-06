@@ -13,9 +13,9 @@ export default function SmallCard(props) {
         transform: `translateX(${props.position}px)`
     }
 
-    let title = props.game.name.split(" ").join('');
+    //console.log("SMALLCARD STATE", props.game);
 
-    //console.log("SMALLCARD STATE", props.user);
+    let title = props.game.name.split(" ").join('');
 
     return (
         <Link 

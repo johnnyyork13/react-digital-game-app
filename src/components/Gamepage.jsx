@@ -15,6 +15,8 @@ export default function Gamepage(props) {
 
     const [openCart, setOpenCart] = React.useState(false);
 
+    console.log(user);
+
     return (
         <div className="gamepage">
             <Nav 
@@ -28,7 +30,7 @@ export default function Gamepage(props) {
             </div>
             <div className="game-container">
                 <Slideshow
-                    screenshots={user.currentGame.short_screenshots}
+                    user={user}
                 />
                 <GameInfo 
                     user={user}

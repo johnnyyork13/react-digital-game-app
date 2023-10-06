@@ -13,7 +13,7 @@ export default function Hero(props) {
     return (
         <Link 
             className="hero" style={style}
-            to={`/${title}`}
+            to={`/game/${title}`}
             state={{
                 ...props.user,
                 currentGame: props.game

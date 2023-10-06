@@ -1,7 +1,8 @@
 .hero {
     background-repeat: no-repeat;
     background-position-x: center;
-    background-size: 100%;
+    background-size: 80%;
+    background-color: black;
     margin-left: 100px;
     margin-right: 100px;
 }

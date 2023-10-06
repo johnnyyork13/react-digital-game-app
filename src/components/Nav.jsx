@@ -7,23 +7,42 @@ import './styles/Hero.css';
 
 export default function Nav(props) {
 
-    const [randomGame, setRandomGame] = React.useState({
-        name: "test",
+    const [game, setGame] = React.useState({
+        name: ""
     });
+
+    const [queryParam, setQueryParam] = React.useState(null);
+
+
+    function updateQueryParam(e) {
+        if (e.target.name === "search") {
+            setQueryParam(function(prev) {
+                return {
+                    ...prev,
+                    name: e.target.value
+                }
+            })
+            console.log(queryParam)
+        } else {
+            setQueryParam(Math.floor(Math.random() * 500000));
+        }
+    }
 
     //API call for random game button
     React.useEffect(() => {
-        const randomGameInt = Math.floor(Math.random() * 500000);
-        async function getGames() {
-        const url = `https://api.rawg.io/api/games/${randomGameInt}?token&key=${props.apiKey}`;
-          fetch(url)
-          .then((res) => res.json())
-          .then((data) => setRandomGame(data.results));
-        }
-        getGames();
-    }, []);
+        if (queryParam) {
 
-    console.log(randomGame);
+            async function getGames() {
+                const url = `https://api.rawg.io/api/games/${queryParam.name ? queryParam.name : queryParam}?token&key=${props.apiKey}`;
+                  fetch(url)
+                  .then((res) => res.json())
+                  .then((data) => setGame(data));
+                }
+                getGames();
+        }
+    }, [queryParam]);
+
+    // console.log(randomGame);
 
     return (
         <nav className="nav">
@@ -56,15 +75,28 @@ export default function Nav(props) {
                     className="nav-btn"
                     state={{
                         ...props.user,
-                        currentGame: randomGame
+                        currentGame: game
                     }}
-                    // to={`/game/${randomGame.name}`}
+                    to={`/game/${game.name}`}
                     >Roll the Dice
                 </Link>
             </div>
             <div className="search-container">
-                <input type="search" className="search-bar" placeholder="Search for a Game"></input>
-                <button className="search-btn">Search</button>
+                <input 
+                    type="search"
+                    name="search"
+                    onChange={updateQueryParam} 
+                    className="search-bar" 
+                    placeholder="Search for a Game"></input>
+                <Link 
+                    className="search-btn"
+                    to={`/game/${game.name}`}
+                    state={{
+                        ...props.user,
+                        currentGame: game
+                    }}
+                    >Search
+                </Link>
                 <button 
                     onClick={() => props.setOpenCart(true)}
                     className="cart-btn"
