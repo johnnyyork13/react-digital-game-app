@@ -6,7 +6,7 @@ export default function Slideshow(props) {
 
     //console.log(props.user)
     //map all of the images
-    const [currentImage, setCurrentImage] = React.useState(props.user.currentGame.short_screenshots ? props.user.currentGame.short_screenshots[1].image : props.user.currentGame.background_image_additional);
+    const [currentImage, setCurrentImage] = React.useState(props.screenshots ? props.screenshots[1].image : props.user.currentGame.background_image_additional);
 
     //console.log(props.game.short_screenshots);
     function handleUpdateImage(e) {

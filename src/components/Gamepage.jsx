@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
+import { getGame, getScreenshots } from './helpers/getGames';
 import Nav from './Nav'
 import Cart from './Cart';
 import Slideshow from './Slideshow';
@@ -14,14 +15,24 @@ export default function Gamepage(props) {
     const page = useParams();
 
     const [user, setUser] = React.useState({...transferUser.state})
+    const [game, setGame] = React.useState(null)
+    const [screenshots, setScreenshots] = React.useState(null);
 
     const [openCart, setOpenCart] = React.useState(false);
 
-    console.log(user);
+    //console.log(user);
+    React.useEffect(() => {
+        if (user.currentGame.id) {
+            const data = getScreenshots(user.currentGame.id);
+            console.log(data);
+        }
+    }, [page.name])
 
     React.useEffect(() => {
         setUser({...transferUser.state});
     }, [page.name])
+
+    //console.log("SCREENSHOTS", screenshots);
 
     return (
         <div className="gamepage">
@@ -34,16 +45,19 @@ export default function Gamepage(props) {
             <div className="banner">
                 {user.currentGame.name}
             </div>
-            <div className="game-container">
+            {/* <div className="game-container">
                 <Slideshow
+                    game={game}
+                    screenshots={screenshots}
                     user={user}
                 />
                 <GameInfo 
+                    game={game}
                     user={user}
                     setUser={setUser}
                     apiKey={user.apiKey}
                 />
-            </div>
+            </div> */}
             {/* {openCart && <Cart 
                 setOpenCart={setOpenCart}
                 setUser={setUser}
