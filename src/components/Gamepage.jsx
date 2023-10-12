@@ -23,8 +23,6 @@ export default function Gamepage(props) {
     }, [page.name])
 
 
-    console.log(user);
-
     return (
         <div className="gamepage">
             <Nav 

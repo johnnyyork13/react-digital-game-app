@@ -60,7 +60,8 @@ export default function GameInfo(props) {
                             wishList: [
                                 ...prev.wishList,
                                 {...props.user.currentGame,
-                                    onWishList: prev.onWishList ? false : true}
+                                    onWishList: prev.onWishList ? false : true,
+                                    key: uuidv4()}
                             ]
                         }))}
                     >{props.user.currentGame.onWishList ? "Remove from Wishlist" : "Add to Wishlist"}
@@ -73,7 +74,7 @@ export default function GameInfo(props) {
                     <div className="game-info-more-left game-info-more-container">
                         <p>Publisher: {props.user.currentGame.publishers && props.user.currentGame.publishers.length > 0 ? props.user.currentGame.publishers[0].name : "No Publisher"}</p>
                         <p>Developer: {props.user.currentGame.developers && props.user.currentGame.developers.length > 0 ? props.user.currentGame.developers[0].name : "Uncredited"}</p>
-                        <p>Release Date: {props.user.currentGame.released ? props.user.currentGame.released : "No Release Date"}</p>
+                        <p>Release Date: {props.user.currentGame.released ? props.user.currentGame.released : "Unavailable"}</p>
                     </div>
                     <div className="game-info-more-right game-info-more-container">
                         <p>Available On:</p>

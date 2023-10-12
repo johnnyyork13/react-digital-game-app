@@ -8,6 +8,8 @@ import logo from '../assets/logo.png';
 
 export default function Nav(props) {
 
+    //console.log("NAVUSER", props.user);
+
     const [game, setGame] = React.useState({
         name: ""
     });

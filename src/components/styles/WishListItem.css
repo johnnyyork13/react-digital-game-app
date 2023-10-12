@@ -1,25 +1,76 @@
 .wishList-item-container {
-    margin-top: 30px;
     display: grid;
     grid-auto-rows: 250px;
     grid-template-columns: 1fr;
     gap: 20px;
     position: relative;
+    box-shadow: var(--shadow);
 }
 
 .wishList-item-top {
-    border: 1px solid green;
+    color: var(--fifty);
+    /* text-align: center;
+    background-color: var(--five);
     display: grid;
     grid-template-columns: 250px 1fr;
-    grid-template-rows: 250px;
-    gap: 50px;
+    grid-template-rows: 250px; */
+    overflow: hidden;
+}
+
+.wishList-item-top:hover .wishList-description {
+    visibility: visible;
 }
 
 .wishList-img {
-    width: 250px;
+    z-index: 0;
+    position: absolute;
+    width: 100%;
     height: 100%;
 }
 
-.wishList-item-bottom {
-    position: absolute;
+.wishList-description {
+    background-color: rgba(0,0,0,.5);
+    z-index: 4;
+    height: 100%;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px;
+}
+
+.wishList-description p {
+    font-size: 1.5em;
+    overflow: auto;
+}
+
+.btn-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+}
+
+.wishList-item-btn {
+    height: 40px;
+    width: 120px;
+    background-color: var(--nine);
+    border: none;
+    color: var(--fifty);
+    /* border-bottom: 3px solid var(--six);
+    border-right: 3px solid var(--six);  */
+    margin-top: 10px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wishList-item-btn:hover {
+    background-color: var(--six);
+    cursor: pointer;
 }
