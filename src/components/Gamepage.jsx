@@ -15,7 +15,7 @@ export default function Gamepage(props) {
     const page = useParams();
 
     const [user, setUser] = React.useState({...transferUser.state})
-
+    const [searchError, setSearchError] = React.useState(false);
     const [openCart, setOpenCart] = React.useState(false);
 
     React.useEffect(() => {
@@ -30,6 +30,7 @@ export default function Gamepage(props) {
                 user={user}
                 setOpenCart={setOpenCart}
                 apiKey={user.apiKey}
+                setSearchError={setSearchError}
             />
             <div className="banner">
                 {user.currentGame.name}
@@ -37,11 +38,13 @@ export default function Gamepage(props) {
             <div className="game-container">
                 <Slideshow
                     user={user}
+                    searchError={searchError}
                 />
                 <GameInfo 
                     user={user}
                     setUser={setUser}
                     apiKey={user.apiKey}
+                    searchError={searchError}
                 />
             </div>
             {/* {/* {openCart && <Cart 

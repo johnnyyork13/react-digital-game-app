@@ -16,12 +16,7 @@ export default function Nav(props) {
     });
     const [results, setResults] = React.useState([])
     const [showSearchResults, setShowSearchResults] = React.useState(false);
-
     const [queryParam, setQueryParam] = React.useState(Math.floor(Math.random() * 500000));
-
-    function handleSearch() {
-
-    }
 
     function updateQueryParam(e) {
         if (e.target.name === "search") {
@@ -48,8 +43,7 @@ export default function Nav(props) {
                                             : `https://api.rawg.io/api/games/${queryParam}?token&key=${props.apiKey}`
                   fetch(url)
                   .then((res) => res.json())
-                //   .then(function(data) {console.log("DATA", data); return data})
-                  .then((data) => {if(data.name === 'undefined') {console.log("TRUE");} return data})
+                  .then((data) => {data.detail ? props.setSearchError(true) : props.setSearchError(false); return data})
                   .then((data) => {queryParam.name ? setResults(data.results ? data.results : []) : setGame(data)});
                 }
                 getGames();
@@ -125,7 +119,6 @@ export default function Nav(props) {
                         ...props.user,
                         currentGame: game
                     }}
-                    onClick={handleSearch}
                     >Search
                 </Link>
                 <div className="search-results" style={searchStyle}>

@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 import './styles/GameInfo.css';
 
 export default function GameInfo(props) {
 
+    const checkState = useParams();
+
+    const [searchError, setSearchError] = React.useState(() => checkState.name === "undefined" ? true : false);
     const [game, setGame] = React.useState({});
     const [error, setError] = React.useState(null);
     const [onWishList, setOnWishList] = React.useState(props.user.wishList.forEach(function(item) {
@@ -12,6 +15,10 @@ export default function GameInfo(props) {
             return true
         }
     }))
+
+    React.useEffect(() => {
+        setSearchError(checkState.name === "undefined" ? true : false);
+    }, [checkState])
 
     React.useEffect(() => {
         async function getGame() {
@@ -33,7 +40,7 @@ export default function GameInfo(props) {
     })
 
     const style = {
-        backgroundImage: `url(${game.background_image})`
+        backgroundImage: !searchError && `url(${game.background_image})`
     }
 
     const wishListStyle = {
@@ -58,9 +65,11 @@ export default function GameInfo(props) {
                         }))}
                     >{props.user.currentGame.onWishList ? "Remove from Wishlist" : "Add to Wishlist"}
                 </button>
-            <div className="game-info-image" style={style}></div>
+            <div className="game-info-image" style={style}>
+                {searchError && "Image Unavailable"}
+            </div>
             <div className="game-info-text">
-                <p>{game.description_raw}</p>
+                {!searchError && <p>{game.description_raw}</p>}
             </div>
             <div className="game-info-more">
                     <div className="game-info-more-left game-info-more-container">

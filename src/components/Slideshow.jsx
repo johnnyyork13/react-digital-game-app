@@ -1,10 +1,14 @@
 import React from 'react';
 import './styles/Slideshow.css';
+import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { getScreenshots } from './helpers/getGames';
 
 export default function Slideshow(props) {
     
+    const checkState = useParams();
+
+    const [searchError, setSearchError] = React.useState(() => checkState.name === "undefined" ? true : false);    
     const [screenshots, setScreenshots] = React.useState();
     const [currentImage, setCurrentImage] = React.useState(screenshots ? screenshots[0] : null);
 
@@ -13,6 +17,9 @@ export default function Slideshow(props) {
         .then((data) => setScreenshots(data));
     }, [props.user])
 
+    React.useEffect(() => {
+        setSearchError(checkState.name === "undefined" ? true : false);
+    }, [checkState])
     
     React.useEffect(() => {
         setCurrentImage(screenshots ? screenshots[0] : null)
@@ -33,19 +40,19 @@ export default function Slideshow(props) {
     //     console.log(image.image)
     // })
     const style = {
-        backgroundImage: `url(${currentImage && currentImage.image ? currentImage.image : currentImage})`
+        backgroundImage: !searchError && `url(${currentImage && currentImage.image ? currentImage.image : currentImage})`
     } 
 
-    //console.log("CURRENTIMAGE", currentImage);
+    console.log("PARAMS", searchError);
 
     return (
         <div className="slideshow-container">
             <div className="main-image" style={style}>
-                {/* {'SCREENSHOTS UNAVAILABLE'} */}
+                {searchError && <p>Bad Dice Roll, Roll Again! <br/> (Server Issue)</p>}
             </div>
-            <div className="image-container">
+            {!searchError && <div className="image-container">
                 {mappedImages}
-            </div>
+            </div>}
         </div>
     )
 }

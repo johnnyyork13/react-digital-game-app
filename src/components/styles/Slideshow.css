@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
-    font-weight: bolder;
+    text-align: center;
 }
 
 .image-container {
@@ -31,4 +31,10 @@
 .image-thumb {
     width: 200px;
     height: 145px;
+    border: 2px solid var(--seven);
+}
+
+.image-thumb:hover {
+    border: 2px solid var(--fifty);
+    cursor: pointer;
 }
