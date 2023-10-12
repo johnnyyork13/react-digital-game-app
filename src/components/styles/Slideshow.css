@@ -24,8 +24,11 @@
     grid-auto-columns: 200px;
     gap: 10px;
     overflow-x: auto;
+    overflow-y: hidden;
+    height: 150px;
 }
 
 .image-thumb {
     width: 200px;
+    height: 145px;
 }

@@ -18,7 +18,7 @@ export default function Results(props) {
 
     React.useEffect(() => {
         async function getGames() {
-          const url = `https://api.rawg.io/api/games?genres=${page.name}&token&key=${user.apiKey}`
+          const url = `https://api.rawg.io/api/games?page_size=30&genres=${page.name}&token&key=${user.apiKey}`
           fetch(url)
           .then((res) => res.json())
           .then(function(data) {setAllGames(data.results)});
@@ -47,14 +47,14 @@ export default function Results(props) {
                     setUser={setUser}
                 />
                 <GameRow
-                    title="Popular"
+                    title="Recommended"
                     gameList={allGames.slice(10, 20)}
                     user={user}
                     setUser={setUser}
                 />
                 <GameRow
-                    title="Popular"
-                    gameList={allGames.slice(10, 20)}
+                    title={`More Cool ${page.name[0].toUpperCase() + page.name.slice(1)} Games`}
+                    gameList={allGames.slice(20, 30)}
                     user={user}
                     setUser={setUser}
                 />

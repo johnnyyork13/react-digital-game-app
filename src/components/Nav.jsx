@@ -18,7 +18,6 @@ export default function Nav(props) {
     const [showSearchResults, setShowSearchResults] = React.useState(false);
 
     const [queryParam, setQueryParam] = React.useState(Math.floor(Math.random() * 500000));
-    const [triggerSearch, setTriggerSearch] = React.useState(false);
 
     function handleSearch() {
 
@@ -51,7 +50,7 @@ export default function Nav(props) {
                   .then((res) => res.json())
                 //   .then(function(data) {console.log("DATA", data); return data})
                   .then((data) => {if(data.name === 'undefined') {console.log("TRUE");} return data})
-                  .then((data) => setResults(data.results ? data.results : []));
+                  .then((data) => {queryParam.name ? setResults(data.results ? data.results : []) : setGame(data)});
                 }
                 getGames();
         }
@@ -105,7 +104,7 @@ export default function Nav(props) {
                         currentGame: game
                     }}
                     onClick={updateQueryParam}
-                    to={`/game/${game.name}`}
+                    to={`/game/${game.slug}`}
                     >Roll the Dice
                 </Link>
             </div>
