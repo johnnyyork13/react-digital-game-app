@@ -22,7 +22,17 @@ export default function GameInfo(props) {
             .catch((err) => setError(err));
         }
         getGame();
-    }, [])
+    }, [props.user])
+
+    const mappedStores = props.user.currentGame.stores && props.user.currentGame.stores.map((store) => {
+        return <a
+        key={uuidv4()}
+        target="_blank"
+        href={`https://${store.store.domain}`}
+        >
+        {store.store.name}    
+        </a>
+    })
 
     const style = {
         backgroundImage: `url(${game.background_image})`
@@ -34,32 +44,13 @@ export default function GameInfo(props) {
 
     // console.log(props.user.currentGame);
     // console.log(game);
+    //console.log(props.user.currentGame);
+
+    //console.log(mappedStores);
 
     return (
         <div className="game-info-container">
-            <div className="game-info-image" style={style}></div>
-            <div className="game-info-text">
-                <p>{game.description_raw}</p>
-            </div>
-            <div className="game-info-publishers">
-                    <p>Publisher: publisher</p>
-                    <p>Developer: developer</p>
-                    <p>Release Date: xx/xx/xxxx</p>
-                    {/* <Link 
-                        className="game-info-btn add-cart-btn"
-                        to="/"
-                        state={{
-                            ...props.user,
-                            cart: [
-                                ...props.user.cart,
-                                {...props.user.currentGame,
-                                    key: uuidv4()
-                                }
-                            ]
-                        }}
-                        >Add to Cart
-                    </Link> */}
-                    <button 
+            <button 
                         className="game-info-btn wishlist-btn"
                         style={wishListStyle}
                         onClick={() => props.setUser((prev) => ({
@@ -74,7 +65,34 @@ export default function GameInfo(props) {
                         }))}
                     >{props.user.currentGame.onWishList ? "Remove from Wishlist" : "Add to Wishlist"}
                 </button>
-                <button onClick={() => console.log(props.user)}>Butt</button>
+            <div className="game-info-image" style={style}></div>
+            <div className="game-info-text">
+                <p>{game.description_raw}</p>
+            </div>
+            <div className="game-info-more">
+                    <div className="game-info-more-left game-info-more-container">
+                        <p>Publisher: {props.user.currentGame.publishers && props.user.currentGame.publishers.length > 0 ? props.user.currentGame.publishers[0].name : "No Publisher"}</p>
+                        <p>Developer: {props.user.currentGame.developers && props.user.currentGame.developers.length > 0 ? props.user.currentGame.developers[0].name : "Uncredited"}</p>
+                        <p>Release Date: {props.user.currentGame.released ? props.user.currentGame.released : "No Release Date"}</p>
+                    </div>
+                    <div className="game-info-more-right game-info-more-container">
+                        <p>Available On:</p>
+                        {mappedStores}
+                    </div>
+                    {/* <Link 
+                        className="game-info-btn add-cart-btn"
+                        to="/"
+                        state={{
+                            ...props.user,
+                            cart: [
+                                ...props.user.cart,
+                                {...props.user.currentGame,
+                                    key: uuidv4()
+                                }
+                            ]
+                        }}
+                        >Add to Cart
+                    </Link> */}
             </div>
         </div>
     )

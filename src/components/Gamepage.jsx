@@ -15,29 +15,15 @@ export default function Gamepage(props) {
     const page = useParams();
 
     const [user, setUser] = React.useState({...transferUser.state})
-    const [game, setGame] = React.useState(null)
-    const [screenshots, setScreenshots] = React.useState(null);
 
     const [openCart, setOpenCart] = React.useState(false);
 
-    //console.log(user);
-    React.useEffect(() => {
-        if (user.currentGame.id) {
-            console.log("BOOOOOOOOOOOOOOOOOOOB")
-            const data = getScreenshots(user.currentGame.id)
-            data.then((d) => {console.log("DATA SET"); return d})
-            .then((d) => setScreenshots(d));
-        }
-    }, [page.name])
-
     React.useEffect(() => {
         setUser({...transferUser.state});
-
     }, [page.name])
 
-    //console.log("SCREENSHOTS", screenshots);
 
-    //console.log(user);
+    console.log(user);
 
     return (
         <div className="gamepage">
@@ -52,12 +38,9 @@ export default function Gamepage(props) {
             </div>
             <div className="game-container">
                 <Slideshow
-                    game={game}
-                    screenshots={screenshots}
                     user={user}
                 />
                 <GameInfo 
-                    game={game}
                     user={user}
                     setUser={setUser}
                     apiKey={user.apiKey}

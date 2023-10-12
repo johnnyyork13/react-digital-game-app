@@ -1,0 +1,25 @@
+.wishList-item-container {
+    margin-top: 30px;
+    display: grid;
+    grid-auto-rows: 250px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    position: relative;
+}
+
+.wishList-item-top {
+    border: 1px solid green;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 250px;
+    gap: 50px;
+}
+
+.wishList-img {
+    width: 250px;
+    height: 100%;
+}
+
+.wishList-item-bottom {
+    position: absolute;
+}

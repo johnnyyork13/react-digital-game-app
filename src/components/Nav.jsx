@@ -40,6 +40,7 @@ export default function Nav(props) {
                   fetch(url)
                   .then((res) => res.json())
                 //   .then(function(data) {console.log("DATA", data); return data})
+                  .then((data) => {if(data.name === 'undefined') {console.log("TRUE");} return data})
                   .then((data) => setGame(data));
                 }
                 getGames();
@@ -68,7 +69,7 @@ export default function Nav(props) {
                 </Link>
                 <Link 
                     className="nav-btn"
-                    to="/wishlist"
+                    to="/wishList"
                     state={{
                         ...props.user
                     }}

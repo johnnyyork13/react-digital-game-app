@@ -39,7 +39,7 @@ export default function Sidebar(props) {
 
       return (
         <div className="sidebar">
-            <h2>Genres</h2>
+            {/* <h2>Genres</h2> */}
             {linkElements}
         </div>
     )

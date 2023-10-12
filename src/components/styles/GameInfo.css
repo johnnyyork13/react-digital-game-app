@@ -1,4 +1,5 @@
 .game-info-container {
+    position: relative;
     display: grid;
     grid-template-columns: .5fr .5fr;
     grid-template-rows: 250px 150px 100px;
@@ -16,11 +17,20 @@
     background-position-x: center;
 }
 
-.game-info-publishers {
+.game-info-more {
     grid-area: infoPublisher;
     color: var(--fifty);
     text-align: start;
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+}
+
+.game-info-more-right {
+    border-left: 2px solid var(--eight);
+    padding-left: 20px;
 }
 
 .game-info-btn {
@@ -49,7 +59,7 @@
 }
 
 .wishlist-btn {
-    top: 70px;
+    top: -50px;
 }
 
 .game-info-text {
@@ -57,4 +67,8 @@
     overflow-y: auto;
     color: var(--fifty);
     font-size: 1.2em;
+}
+
+.game-info-container a {
+    color: var(--fifty);
 }

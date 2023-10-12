@@ -1,18 +1,27 @@
 import React from 'react';
 import './styles/Slideshow.css';
 import { v4 as uuidv4 } from 'uuid';
+import { getScreenshots } from './helpers/getGames';
 
 export default function Slideshow(props) {
+    
+    const [screenshots, setScreenshots] = React.useState();
+    const [currentImage, setCurrentImage] = React.useState(screenshots ? screenshots[0] : null);
 
-    //map all of the images
-    const [currentImage, setCurrentImage] = React.useState(props.screenshots ? (() => {console.log('YES///////////'); props.screenshots[0]}) : (() => {console.log("NO//////////"); null}))
+    React.useEffect(() => {
+        getScreenshots(props.user.currentGame.id)
+        .then((data) => setScreenshots(data));
+    }, [props.user])
 
-    console.log("SCREENSHOTS", props.sreenshots);
+    
+    React.useEffect(() => {
+        setCurrentImage(screenshots ? screenshots[0] : null)
+    }, [screenshots, props.user])
     function handleUpdateImage(e) {
         setCurrentImage(e.target.src);
     }
 
-    const mappedImages = props.screenshots && props.screenshots.map((image, index) => {
+    const mappedImages = screenshots && screenshots.map((image, index) => {
         return index > 0 && <img 
                     key={uuidv4()}
                     src={image.image} 
@@ -24,10 +33,10 @@ export default function Slideshow(props) {
     //     console.log(image.image)
     // })
     const style = {
-        backgroundImage: `url(${currentImage})`
+        backgroundImage: `url(${currentImage && currentImage.image ? currentImage.image : currentImage})`
     } 
 
-    console.log("USER", currentImage);
+    //console.log("CURRENTIMAGE", currentImage);
 
     return (
         <div className="slideshow-container">

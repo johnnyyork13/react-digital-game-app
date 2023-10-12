@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './components/App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Gamepage from './components/Gamepage.jsx';
-import Wishlist from './components/Wishlist.jsx';
+import WishList from './components/WishList.jsx';
 import Results from './components/Results.jsx';
 
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/wishlist",
-    element: <Wishlist />
+    element: <WishList />
   },
   {
     path: "/results/:name",

@@ -1,17 +1,16 @@
 .sidebar {
-    background-color: var(--seven);
-    display: flex;
-    flex-direction: column;
+    /* background-color: var(--seven); */
+    display: grid;
     grid-auto-rows: auto;
     gap: 10px;
     padding: 15px;
     color: var(--fifty);
     text-align: center;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
 }
 
 .genre-btn {
-    height: 23px;
+    /* height: 23px; */
     background-color: var(--nine);
     border: none;
     color: var(--fifty);
