@@ -4,16 +4,15 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Slideshow(props) {
 
-    //console.log(props.user)
     //map all of the images
-    const [currentImage, setCurrentImage] = React.useState(props.screenshots ? props.screenshots[1].image : props.user.currentGame.background_image_additional);
+    const [currentImage, setCurrentImage] = React.useState(props.screenshots ? (() => {console.log('YES///////////'); props.screenshots[0]}) : (() => {console.log("NO//////////"); null}))
 
-    //console.log(props.game.short_screenshots);
+    console.log("SCREENSHOTS", props.sreenshots);
     function handleUpdateImage(e) {
         setCurrentImage(e.target.src);
     }
 
-    const mappedImages = props.user.currentGame.short_screenshots && props.user.currentGame.short_screenshots.map((image, index) => {
+    const mappedImages = props.screenshots && props.screenshots.map((image, index) => {
         return index > 0 && <img 
                     key={uuidv4()}
                     src={image.image} 
@@ -28,12 +27,12 @@ export default function Slideshow(props) {
         backgroundImage: `url(${currentImage})`
     } 
 
-    //console.log(currentImage);
+    console.log("USER", currentImage);
 
     return (
         <div className="slideshow-container">
             <div className="main-image" style={style}>
-                {!currentImage && 'SCREENSHOTS UNAVAILABLE'}
+                {/* {'SCREENSHOTS UNAVAILABLE'} */}
             </div>
             <div className="image-container">
                 {mappedImages}

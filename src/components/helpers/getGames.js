@@ -21,8 +21,7 @@ async function getScreenshots(id) {
     const url = `https://api.rawg.io/api/games/${id}/screenshots?token&key=${key}`;
     const req = await fetch(url);
     const res = await req.json();
-    const data = res.results;
-
+    const data = await res.results;
     return data;
 }
 

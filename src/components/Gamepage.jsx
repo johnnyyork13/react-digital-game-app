@@ -23,16 +23,21 @@ export default function Gamepage(props) {
     //console.log(user);
     React.useEffect(() => {
         if (user.currentGame.id) {
-            const data = getScreenshots(user.currentGame.id);
-            console.log(data);
+            console.log("BOOOOOOOOOOOOOOOOOOOB")
+            const data = getScreenshots(user.currentGame.id)
+            data.then((d) => {console.log("DATA SET"); return d})
+            .then((d) => setScreenshots(d));
         }
     }, [page.name])
 
     React.useEffect(() => {
         setUser({...transferUser.state});
+
     }, [page.name])
 
     //console.log("SCREENSHOTS", screenshots);
+
+    //console.log(user);
 
     return (
         <div className="gamepage">
@@ -45,7 +50,7 @@ export default function Gamepage(props) {
             <div className="banner">
                 {user.currentGame.name}
             </div>
-            {/* <div className="game-container">
+            <div className="game-container">
                 <Slideshow
                     game={game}
                     screenshots={screenshots}
@@ -57,8 +62,8 @@ export default function Gamepage(props) {
                     setUser={setUser}
                     apiKey={user.apiKey}
                 />
-            </div> */}
-            {/* {openCart && <Cart 
+            </div>
+            {/* {/* {openCart && <Cart 
                 setOpenCart={setOpenCart}
                 setUser={setUser}
                 user={user}

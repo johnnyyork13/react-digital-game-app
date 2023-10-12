@@ -23,7 +23,7 @@ export default function Nav(props) {
             setQueryParam(function(prev) {
                 return {
                     ...prev,
-                    name: e.target.value
+                    name: e.target.value.toLowerCase()
                 }
             })
             //console.log(queryParam)
