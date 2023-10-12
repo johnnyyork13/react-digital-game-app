@@ -69,6 +69,38 @@
     height: 30px;
 }
 
+.search-results {
+    /* visibility: hidden; */
+    z-index: 8;
+    position: absolute;
+    background-color: white;
+    left: 0;
+    width: 100%;
+    top: 63px;
+}
+
+.search-result{
+    width: 100%;
+    margin: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.search-result:hover {
+    background-color: var(--two);
+    cursor: pointer;
+}
+
+.search-result {
+    text-decoration: none;
+    color: var(--nine);
+}
+
+.search-result-text {
+    margin-left: 10px;
+}
+
 .cart-btn {
     width: 120px;
     top: -20px;

@@ -25,13 +25,11 @@ export default function GameInfo(props) {
     }, [props.user])
 
     const mappedStores = props.user.currentGame.stores && props.user.currentGame.stores.map((store) => {
-        return <a
-        key={uuidv4()}
-        target="_blank"
-        href={`https://${store.store.domain}`}
-        >
-        {store.store.name}    
-        </a>
+        return <p key={uuidv4()}>
+                    <a target="_blank" href={`https://${store.store.domain}`}>
+                        {store.store.name}    
+                    </a>
+                </p>
     })
 
     const style = {
@@ -41,12 +39,6 @@ export default function GameInfo(props) {
     const wishListStyle = {
 
     }
-
-    // console.log(props.user.currentGame);
-    // console.log(game);
-    //console.log(props.user.currentGame);
-
-    //console.log(mappedStores);
 
     return (
         <div className="game-info-container">

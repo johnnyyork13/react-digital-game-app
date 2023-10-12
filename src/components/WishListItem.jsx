@@ -4,6 +4,13 @@ import './styles/WishListItem.css';
 
 export default function WishListItem(props) {
 
+    function handleRemoveItem(key) {
+        props.setUser((prev) => ({
+            ...prev,
+            wishList: prev.wishList.filter((game) => game.key !== key && game)
+        }))
+    }
+
     return (
         <div className="wishList-item-container">
             <div className="wishList-item-top">
@@ -20,7 +27,7 @@ export default function WishListItem(props) {
                         </Link>
                         <button 
                             className="wishList-item-btn wishList-item-btn-right"
-                            onClick={() => props.handleRemoveItem(props.game.key)}
+                            onClick={() => handleRemoveItem(props.game.key)}
                             >Remove from Wishlist
                         </button>
                     </div>

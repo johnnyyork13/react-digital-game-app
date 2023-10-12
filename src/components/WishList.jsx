@@ -9,13 +9,9 @@ import './styles/WishList.css';
 
 export default function Wishlist(props) {
 
-    const checkState = useLocation();
+    let checkState = useLocation();
     const [user, setUser] = React.useState({...checkState.state});
     const [openCart, setOpenCart] = React.useState(false);
-
-    function handleRemoveItem(key) {
-
-    }
 
     //console.log(user.wishList)
 
@@ -24,7 +20,8 @@ export default function Wishlist(props) {
                     key={uuidv4()}
                     game={item}
                     user={user}
-                    handleRemoveItem={handleRemoveItem}
+                    setUser={setUser}
+                    // handleRemoveItem={handleRemoveItem}
                 />
     })
 
