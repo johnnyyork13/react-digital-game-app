@@ -44,7 +44,7 @@ export default function Gamepage(props) {
                     user={user}
                     setUser={setUser}
                     apiKey={user.apiKey}
-                    searchError={searchError}
+                    // searchError={searchError}
                 />
             </div>
             {/* {/* {openCart && <Cart 
