@@ -43,7 +43,7 @@ export default function Nav(props) {
                                             : `https://api.rawg.io/api/games/${queryParam}?token&key=${props.apiKey}`
                   fetch(url)
                   .then((res) => res.json())
-                  .then((data) => {data.detail ? props.setSearchError(true) : props.setSearchError(false); return data})
+                //   .then((data) => {data.detail ? props.setSearchError(true) : props.setSearchError(false); return data})
                   .then((data) => {queryParam.name ? setResults(data.results ? data.results : []) : setGame(data)});
                 }
                 getGames();
