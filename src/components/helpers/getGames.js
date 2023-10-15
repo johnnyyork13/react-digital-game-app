@@ -1,5 +1,5 @@
 async function getGame(id) {
-    const key = "6edf5284267f4b93812855603bb5435a";
+    const key = "367870d561b44d5fbcf3e024eed11f3e";
     let game;
     const url = `https://api.rawg.io/api/games/${id}?token&key=${key}`;
     fetch(url)
@@ -17,7 +17,7 @@ async function getGame(id) {
 
 async function getScreenshots(id) {
 
-    const key = "6edf5284267f4b93812855603bb5435a";
+    const key = "367870d561b44d5fbcf3e024eed11f3e";
     const url = `https://api.rawg.io/api/games/${id}/screenshots?token&key=${key}`;
     const req = await fetch(url);
     const res = await req.json();
