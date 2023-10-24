@@ -1,8 +1,10 @@
-# React + Vite
+A mock digital game purchasing app that displays a chosen game's information. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features include an AI powered search bar that autofills game based on input, as well as a random game option that randomly selects a game in RAWG's database. 
 
-Currently, two official plugins are available:
+This application also provides a wishlist to users, however I have not implemented permanent storage - effectively making it a showcase component only. (Although I may revisit this project in the future and add persisting storage either through the localStorage API or through Mongo).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is only intended to practice React concepts like useParams, useLocation, and React routes. 
+
+Disclaimer: 
+All data and images on this application are derived from the RAWG gaming API. 
