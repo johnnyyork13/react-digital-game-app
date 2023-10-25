@@ -6,7 +6,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     position: relative;
-    box-shadow: var(--shadow);
     /* transition-property: transform, background-size;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out; */
@@ -31,11 +30,12 @@
 }
 
 .small-card-link {
-    background-size: 200%;
+    background-size: 220%;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    box-shadow: var(--shadow);
 }
 
 .small-card:hover {

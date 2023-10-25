@@ -15,3 +15,7 @@
     grid-area: sidebar;
 }
 
+.all-game-rows {
+    display: grid;
+    grid-template-rows: repeat(3, .33fr);
+}

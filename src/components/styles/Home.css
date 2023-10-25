@@ -9,3 +9,8 @@
         "sidebar allGameRows"
         "sidebar allGameRows" ;
 }
+
+.all-game-rows {
+    display: grid;
+    grid-template-rows: repeat(2, .5fr);
+}
